@@ -14,10 +14,10 @@ class App extends Backbone.Marionette.Application
 
     @addInitializer((options) =>
       @addRegions({
-        colorbarRegion: {
-          selector: "#colorbar"
-          module: @submodules.Colorbar
-        }
+#        colorbarRegion: {
+#          selector: "#colorbar"
+#          module: @submodules.Colorbar
+#        }
       })
     )
 
@@ -25,7 +25,7 @@ class App extends Backbone.Marionette.Application
       Backbone.history.start()
     )
 
-    @module('Colorbar', ColorbarModule)
+#    @module('Colorbar', ColorbarModule)
 
     @start()
 
