@@ -1,6 +1,6 @@
 AppView = require './views/AppView'
 
-ColorbarModule = require('./modules/colorbar/ColorbarModule')
+ScrollModule = require('./modules/scroll/ScrollModule.jsx')
 
 class App extends Backbone.Marionette.Application
   initialize: =>
@@ -14,10 +14,10 @@ class App extends Backbone.Marionette.Application
 
     @addInitializer((options) =>
       @addRegions({
-#        colorbarRegion: {
-#          selector: "#colorbar"
-#          module: @submodules.Colorbar
-#        }
+        scrollRegion: {
+          selector: "#scroll"
+          module: @submodules.Scroll
+        }
       })
     )
 
@@ -25,7 +25,7 @@ class App extends Backbone.Marionette.Application
       Backbone.history.start()
     )
 
-#    @module('Colorbar', ColorbarModule)
+    @module('Scroll', ScrollModule)
 
     @start()
 
