@@ -1,15 +1,5 @@
-Marionette.Behaviors.behaviorsLookup = ->
-  window.Behaviors
-
-window.Behaviors = {}
-window.Behaviors.Closeable = require './behaviors/Closeable'
-
-ToggleableRegion = require './regions/ToggleableRegion'
-
 AppView = require './views/AppView'
 
-TodoModule = require('./modules/todo/TodoModule')
-NotificationModule = require('./modules/notification/NotificationModule')
 ColorbarModule = require('./modules/colorbar/ColorbarModule')
 
 class App extends Backbone.Marionette.Application
@@ -24,19 +14,8 @@ class App extends Backbone.Marionette.Application
 
     @addInitializer((options) =>
       @addRegions({
-        notificationRegion: {
-          selector: "#notifications"
-          regionClass: ToggleableRegion
-          module: @submodules.Notification
-        }
-        todoRegion: {
-          selector: "#todos"
-          regionClass: ToggleableRegion
-          module: @submodules.Todo
-        }
         colorbarRegion: {
           selector: "#colorbar"
-          regionClass: ToggleableRegion
           module: @submodules.Colorbar
         }
       })
@@ -46,8 +25,6 @@ class App extends Backbone.Marionette.Application
       Backbone.history.start()
     )
 
-    @module('Notification', NotificationModule)
-    @module('Todo', TodoModule)
     @module('Colorbar', ColorbarModule)
 
     @start()

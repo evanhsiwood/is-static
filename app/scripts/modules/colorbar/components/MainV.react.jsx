@@ -21,8 +21,6 @@ module.exports = React.createClass({
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">Colorbar
-                    <button className="close">&times;
-                    </button>
                 </div>
                 <div className="panel-body">
                     {_.map(this.props.rows, function (row) {

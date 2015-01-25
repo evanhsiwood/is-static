@@ -35,7 +35,7 @@ module.exports = class ColorbarModule extends Marionette.Module
     @MainV = require("./components/MainV.react.jsx")
 
     console.log 'Initializing ColorbarModule'
-    @startWithParent = false
+    @startWithParent = true
 
   onStart: ->
     rows = getData()
