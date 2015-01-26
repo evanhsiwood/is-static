@@ -9,8 +9,7 @@ config = require('./config')
 gulp.task 'vendor-styles', ->
   # css
   stream = gulp.src([
-    config.paths.vendor + 'styles/bootstrap.css',
-    config.paths.vendor + 'styles/bootstrap-theme.css'
+    config.paths.vendor + 'styles/ionic.css'
   ])
   .pipe(plumber())
   .pipe(concat("vendor.css"))
@@ -20,11 +19,11 @@ gulp.task 'vendor-styles', ->
   stream.pipe(gulp.dest(config.paths.dest + '/css'))
 
   #  map
-  stream = gulp.src([
-    config.paths.vendor + 'styles/bootstrap.css.map',
-    config.paths.vendor + 'styles/bootstrap-theme.css.map'
-  ])
-  stream.pipe(gulp.dest(config.paths.dest + 'css/'))
+#  stream = gulp.src([
+#    config.paths.vendor + 'styles/bootstrap.css.map',
+#    config.paths.vendor + 'styles/bootstrap-theme.css.map'
+#  ])
+#  stream.pipe(gulp.dest(config.paths.dest + 'css/'))
 
   # font
   stream = gulp.src([
