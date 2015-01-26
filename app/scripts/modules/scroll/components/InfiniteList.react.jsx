@@ -1,6 +1,9 @@
 var ListItem = require("./ListItem.react.jsx");
 
 module.exports = React.createClass({
+
+    mixins: [Backbone.React.Component.mixin],
+
     getInitialState: function () {
         return {
             elements: this.buildElements(0, 10),
@@ -10,8 +13,14 @@ module.exports = React.createClass({
 
     buildElements: function (start, end) {
         var elements = [];
+
+        var model = new Backbone.Model({
+            author: "Shane Xi",
+            album: "IndulgeSmart"
+        });
+
         for (var i = start; i < end; i++) {
-            elements.push(<ListItem key={i}/>)
+            elements.push(<ListItem key={i} model={model}/>)
         }
         return elements;
     },
@@ -38,7 +47,7 @@ module.exports = React.createClass({
     },
 
     render: function () {
-        return <Infinite elementHeight={40}
+        return <Infinite elementHeight={100}
             containerHeight={500}
             infiniteLoadBeginBottomOffset={200}
             onInfiniteLoad={this.handleInfiniteLoad}
