@@ -3,7 +3,7 @@ var ListItem = require("./ListItem.react.jsx");
 module.exports = React.createClass({
     getInitialState: function () {
         return {
-            elements: this.buildElements(0, 20),
+            elements: this.buildElements(0, 10),
             isInfiniteLoading: false
         }
     },
@@ -32,14 +32,14 @@ module.exports = React.createClass({
     },
 
     elementInfiniteLoad: function () {
-        return <div className="infinite-list-item">
+        return <div className="item item-thumbnail-left">
             Loading...
         </div>;
     },
 
     render: function () {
         return <Infinite elementHeight={40}
-            containerHeight={250}
+            containerHeight={500}
             infiniteLoadBeginBottomOffset={200}
             onInfiniteLoad={this.handleInfiniteLoad}
             loadingSpinnerDelegate={this.elementInfiniteLoad()}

@@ -1,7 +1,11 @@
 module.exports = React.createClass({
     render: function () {
-        return <div className="infinite-list-item">
-            List Item {this.props.key}
-        </div>;
+        return (
+            <a className="item item-thumbnail-left">
+                <img />
+                <h2>Weezer</h2>
+                <p>Blue Album</p>
+            </a>
+        );
     }
 });
