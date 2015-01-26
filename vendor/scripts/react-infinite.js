@@ -37,7 +37,7 @@
 
         infiniteLoadBeginBottomOffset: React.PropTypes.number,
         onInfiniteLoad: React.PropTypes.func,
-        loadingSpinnerDelegate: React.PropTypes.renderable,
+        loadingSpinnerDelegate: React.PropTypes.node,
 
         isInfiniteLoading: React.PropTypes.bool,
 
