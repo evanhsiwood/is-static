@@ -1,7 +1,7 @@
 module.exports = {
   run: ->
-    fauxServer.get("todos/", ->
-      console.log "mock ⇾ [todos/ GET]"
-      require('./mocks/todos.json')
+    fauxServer.get("restaurants/", ->
+      console.log "mock ⇾ [restaurants/ GET]"
+      require('./mocks/restaurants.json')
     )
 }

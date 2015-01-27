@@ -1,5 +1,5 @@
 var ListItem = require("./ListItem.react.jsx");
-var Restaurant = require("../models/Restaurant");
+var Restaurants = require("../collections/Restaurants");
 
 module.exports = React.createClass({
 
@@ -13,16 +13,13 @@ module.exports = React.createClass({
     buildElements: function (start, end) {
         var elements = [];
 
-        var model = new Restaurant({
-            name: "Wagas (New)",
-            type: "Cafe",
-            area: "Pudong",
-            address: "Lane 1239 Zuchongzhi Lu, No 6"
+        var collection = new Restaurants();
+        collection.fetch();
+
+        collection.each(function (model) {
+            elements.push(<ListItem key={model.cid} model={model}/>)
         });
 
-        for (var i = start; i < end; i++) {
-            elements.push(<ListItem key={i} model={model}/>)
-        }
         return elements;
     },
 
