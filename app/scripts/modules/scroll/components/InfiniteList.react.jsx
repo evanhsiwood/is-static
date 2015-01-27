@@ -1,8 +1,7 @@
 var ListItem = require("./ListItem.react.jsx");
+var Restaurant = require("../models/Restaurant");
 
 module.exports = React.createClass({
-
-    mixins: [Backbone.React.Component.mixin],
 
     getInitialState: function () {
         return {
@@ -14,9 +13,11 @@ module.exports = React.createClass({
     buildElements: function (start, end) {
         var elements = [];
 
-        var model = new Backbone.Model({
-            author: "Shane Xi",
-            album: "IndulgeSmart"
+        var model = new Restaurant({
+            name: "Wagas (New)",
+            type: "Cafe",
+            area: "Pudong",
+            address: "Lane 1239 Zuchongzhi Lu, No 6"
         });
 
         for (var i = start; i < end; i++) {
@@ -32,7 +33,7 @@ module.exports = React.createClass({
         });
         setTimeout(function () {
             var elemLength = that.state.elements.length,
-                newElements = that.buildElements(elemLength, elemLength + 1000);
+                newElements = that.buildElements(elemLength, elemLength + 10);
             that.setState({
                 isInfiniteLoading: false,
                 elements: that.state.elements.concat(newElements)
